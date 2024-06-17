@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
+import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './styles/GlobalStyles'
-import Dashboard from './pages/Dashboard'
+import Layout from './components/Layout'
+import dark from './styles/themes/dark'
+import light from './styles/themes/light'
+import Ocorrencias from './pages/Ocorrencias'
 
 export default class App extends Component {
   render() {
     return (
-      <>
+      <ThemeProvider theme={dark}>
         <GlobalStyles />
-        <Dashboard />
-      </>
+        <Layout>
+          <Ocorrencias />
+        </Layout>
+      </ThemeProvider>
     )
   }
 }
