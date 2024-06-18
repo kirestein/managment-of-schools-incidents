@@ -5,15 +5,13 @@ import { Container } from './styles';
 interface IAdvertenciasComponentProps {
   message: string
   name: string
-  data: string
 }
 
 const AdvertenciasComponent: React.FC<IAdvertenciasComponentProps> = ({
   message,
-  name,
-  data
+  name
 }) => {
-  const dado = name ? name : data;
+  const dado = name;
   const shouldDisplayMessage = (dado === '' || message.includes(dado));
   return (
     <Container>
