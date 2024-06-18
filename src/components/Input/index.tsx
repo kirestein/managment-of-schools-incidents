@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { 
     Container, 
     InputContainer 
 } from './styles';
 
-const Input: React.FC = () => {
-    const [name, setName] = useState('')
+interface IInputProps {
+    name: string;
+    setName: (name: string) => void;
+}
+
+const Input: React.FC<IInputProps> = ({
+    name,
+    setName
+}) => {
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = ((e) => {
         // No longer need to cast to any - hooray for react!
@@ -14,7 +21,7 @@ const Input: React.FC = () => {
     })
   return (
     <Container>
-        <input 
+        <InputContainer 
             type="text" 
             placeholder='Pesquisar por aluno' 
             onChange={ handleChange }
