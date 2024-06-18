@@ -9,7 +9,7 @@ interface IContentHeaderProps {
     title: string;
     linecolor: string;
     children: React.ReactNode;
-    children2: React.ReactNode;
+    children2?: React.ReactNode;
 }
 
 const ContentHeader: React.FC<IContentHeaderProps> = (({
