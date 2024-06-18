@@ -9,11 +9,17 @@ import {
   StyledTextField
 } from './styles';
 
+interface ISelectDateProps {
+  
+  setDate: (name: string) => void;
+}
 
 
 
-
-export default function SelectDate() {
+const SelectDate: React.FC<ISelectDateProps> = ({
+  
+  setDate
+}) => {
   return (
     <Container>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -22,7 +28,15 @@ export default function SelectDate() {
           <DesktopDatePicker 
             slots={{
               textField: StyledTextField,
-          }} format='DD/MM/YYYY'/>
+            }} format='DD/MM/YYYY'
+            onChange={
+              (val) => {
+                setDate("endDate");
+                setDate(val?.format('DD/MM/YYYY') || '');
+                // console.log(`data: ${val?.date()}/${val?.month()}/${val?.year()}`);
+              }
+            }
+          />
 
           
         </DemoContainer>
@@ -30,3 +44,5 @@ export default function SelectDate() {
     </Container>
   );
 }
+
+export default SelectDate;
